@@ -11,6 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 @WebServlet(name = "Quete JSP", urlPatterns = {"/quetejsp"})
 public class Servlet extends HttpServlet {
 
@@ -20,6 +21,8 @@ public class Servlet extends HttpServlet {
         DateFormat dateformat = new SimpleDateFormat("EEEE dd/MM/yyyy");
         String myDate = dateformat.format(new Date());
         request.setAttribute("myDate", myDate);
+        request.setAttribute("fibonacci", (Fibonacci.fibonacci(20)));
         request.getRequestDispatcher("/WEB-INF/QueteJSP.jsp").forward(request, response);
+
     }
 }
